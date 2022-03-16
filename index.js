@@ -21,7 +21,7 @@ if (!process.env.RUNNING_IN_DOCKER) {
 // this wasn't here before
 function log(m, n) {
     console.log(m + ':');
-    console.log('\t' + n.toString("utf-8"));
+    console.log('\t' + n.toString("utf8"));
 }
 
 // originally, there was a random timeout to run the function

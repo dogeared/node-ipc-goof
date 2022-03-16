@@ -1,4 +1,4 @@
-FROM node
+FROM node:17.7.1-slim
 
 ENV RUNNING_IN_DOCKER true
 

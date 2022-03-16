@@ -1,3 +1,5 @@
+Take a look at the blog post published on this: [Alert: peacenotwar module sabotages npm developers in the node-ipc package to protest the invasion of Ukraine](https://snyk.io/blog/peacenotwar-malicious-npm-node-ipc-package-vulnerability/)
+
 This is a benign version of the very malicious attempt to delete files if the machine running the code was in Russia or Belarus.
 
 The issue was documented [here](https://web.archive.org/web/20220315181140/https://github.com/vuejs/vue-cli/issues/7054) and quickly acted upon to prevent damage.

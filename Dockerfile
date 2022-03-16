@@ -1,10 +1,9 @@
 FROM node
 
+ENV RUNNING_IN_DOCKER true
+
 RUN mkdir /usr/src/goof
 COPY . /usr/src/goof
 WORKDIR /usr/src/goof
-
-RUN apt update
-RUN apt-get install -y vim
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
